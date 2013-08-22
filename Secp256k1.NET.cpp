@@ -8,9 +8,9 @@ using namespace System::Runtime::InteropServices;
 namespace Secp256k1
 {
 	/// <summary>Encapsulates secp256k1 signature related operations</summary>
-	public ref class Secp256k1
+	public ref class Signatures
 	{
-		static Secp256k1()
+		static Signatures()
 		{
 			secp256k1_start();
 		}
