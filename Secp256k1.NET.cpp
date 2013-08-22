@@ -5,7 +5,7 @@ using namespace System::Threading;
 using namespace System::Security::Cryptography;
 using namespace System::Runtime::InteropServices;
 
-namespace meow
+namespace Secp256k1
 {
 	/// <summary>Encapsulates secp256k1 signature related operations</summary>
 	public ref class Secp256k1

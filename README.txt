@@ -42,7 +42,7 @@ Sipa's secp256k1 is 100-1000x faster.
 This wrapper relies on 3 library files:
 	libgcc.a (from Mingw64: http://mingw-w64.sourceforge.net/)
 	libgmp.a (from gmp: http://gmplib.org/)
-	libsecp256k1 (from Sipa's project)
+	libsecp256k1.a (from Sipa's project)
 
 ---------------------------------------------------------------------
 
