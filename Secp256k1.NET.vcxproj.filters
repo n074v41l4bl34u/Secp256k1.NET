@@ -28,7 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="libgmp.a" />
-    <None Include="libsecp256k1.a" />
     <None Include="libgcc.a" />
+    <None Include="libsecp256k1.a" />
   </ItemGroup>
 </Project>

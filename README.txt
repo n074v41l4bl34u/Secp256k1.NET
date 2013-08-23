@@ -53,14 +53,14 @@ gave me some hints.  I was able to build secp256k1 on my windows machine using
 this procedure.  (Yasm & Mingw64 installed, assuming gmp already built)
 
 In the secp256k1 folder, execute:
-1) yasm -f win64 -o obj\field_5x64_asm.o src\field_5x64_asm.asm
+1) yasm -f win64 -o obj\field_5x52_asm.o src\field_5x52_asm.asm
 2) x86_64-w64-mingw32-gcc-4.8.1.exe -I gmp -fPIC -std=gnu99 -DNDEBUG -O2 
-	-DUSE_NUM_GMP -DUSE_FIELD_INV_NUM -DUSE_FIELD_5X64 -DUSE_FIELD_5X64_ASM	
+	-DUSE_NUM_GMP -DUSE_FIELD_INV_NUM -DUSE_FIELD_5X52 -DUSE_FIELD_5X52_ASM	
 	src\secp256k1.c -c -o obj\secp256k1.o 
 3) x86_64-w64-mingw32-gcc-4.8.1.exe -I gmp -std=gnu99 -DUSE_NUM_GMP 
-	-DUSE_FIELD_INV_NUM -DUSE_FIELD_5X64 -DUSE_FIELD_5X64_ASM -DVERIFY 
-	-fstack-protector-all -O2 -ggdb3 src\tests.c obj\field_5x64_asm.o 
+	-DUSE_FIELD_INV_NUM -DUSE_FIELD_5X52 -DUSE_FIELD_5X52_ASM -DVERIFY 
+	-fstack-protector-all -O2 -ggdb3 src\tests.c obj\field_5x52_asm.o 
 	-lgmp -L gmp -o tests
-4) ar -rs libsecp256k1.a obj\field_5x64_asm.o obj\secp256k1.o 
+4) ar -rs libsecp256k1.a obj\field_5x52_asm.o obj\secp256k1.o 
 
 
