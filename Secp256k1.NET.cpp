@@ -1,4 +1,4 @@
-#include "C:\Users\Josh\Desktop\secp256k1-master\include\secp256k1.h"
+#include "secp256k1.h"
 
 using namespace System;
 using namespace System::Threading;

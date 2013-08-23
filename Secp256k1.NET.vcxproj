@@ -82,15 +82,15 @@
     <ClCompile Include="Secp256k1.NET.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="secp256k1.h" />
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="libgcc.a" />
     <None Include="libgmp.a" />
     <None Include="libsecp256k1.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="secp256k1.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

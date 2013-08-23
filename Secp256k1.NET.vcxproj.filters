@@ -19,16 +19,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="secp256k1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="libgmp.a" />
     <None Include="libgcc.a" />
     <None Include="libsecp256k1.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="secp256k1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
