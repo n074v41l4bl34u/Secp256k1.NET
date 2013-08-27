@@ -22,6 +22,7 @@ namespace Secp256k1
 		static const int NonceTries = 1000;// give up after 1000 tries - obviously something ELSE is wrong other than a nonce.
 		static String ^PrivateKeyLengthError = "Private key must be 32 bytes long.";
 		static String ^CompactsignaturenatureLengthError = "Compact signaturenatures must be 64 bytes long.";
+		static String ^MessageLengthError = "Message must be 32 bytes long (SHA-256 it!)";
 	public:
 		enum class VerifyResult
 		{
@@ -44,6 +45,8 @@ namespace Secp256k1
 		{
 			if (message == nullptr || signature == nullptr || publicKey == nullptr)
 				throw gcnew ArgumentNullException();
+			if (message->Length != 32)
+				throw gcnew ArgumentOutOfRangeException(MessageLengthError);
 			pin_ptr<Byte> messageptr = &message[0];
 			pin_ptr<Byte> signatureptr = &signature[0];
 			pin_ptr<Byte> keyptr = &publicKey[0];
@@ -71,6 +74,8 @@ namespace Secp256k1
 				throw gcnew ArgumentNullException();
 			if (privateKey->Length != 32)
 				throw gcnew ArgumentOutOfRangeException(PrivateKeyLengthError);
+			if (message->Length != 32)
+				throw gcnew ArgumentOutOfRangeException(MessageLengthError);
 			pin_ptr<Byte> messageptr = &message[0];
 			pin_ptr<Byte> keyptr = &privateKey[0];
 			array<Byte> ^nonce = gcnew array<Byte>(32);
@@ -104,6 +109,8 @@ namespace Secp256k1
 				throw gcnew ArgumentNullException();
 			if (privateKey->Length != 32)
 				throw gcnew ArgumentOutOfRangeException(PrivateKeyLengthError);
+			if (message->Length != 32)
+				throw gcnew ArgumentOutOfRangeException(MessageLengthError);
 			recoveryId = 0;
 			pin_ptr<Byte> messageptr = &message[0];
 			pin_ptr<Byte> keyptr = &privateKey[0];
@@ -136,6 +143,8 @@ namespace Secp256k1
 				throw gcnew ArgumentNullException();
 			if (signature->Length != 64)
 				throw gcnew ArgumentOutOfRangeException(CompactsignaturenatureLengthError);
+			if (message->Length != 32)
+				throw gcnew ArgumentOutOfRangeException(MessageLengthError);
 			pin_ptr<Byte> messageptr = &message[0];
 			pin_ptr<Byte> signatureptr = &signature[0];
 			array<Byte> ^key = gcnew array<Byte>(65);
