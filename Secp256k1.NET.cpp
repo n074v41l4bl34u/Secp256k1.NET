@@ -38,7 +38,7 @@ namespace Secp256k1
 		};
 		/// <summary>Verifies that a signature is valid.</summary>
 		/// <param name="message">The message to verify.  This data is not hashed.  For use with bitcoins, you probably want to double-SHA256 hash this before calling this method.</param>
-		/// <param name="signature">The signature to test for validity.</param>
+		/// <param name="signature">The signature to test for validity. This must not be a compact key (Use RecoverKeyFromCompact instead).</param>
 		/// <param name="publicKey">The public key used to create the signature.</param>
 		static VerifyResult Verify(array<Byte> ^message, array<Byte> ^signature, array<Byte> ^publicKey)
 		{
@@ -78,10 +78,11 @@ namespace Secp256k1
 			array<Byte> ^signature = gcnew array<Byte>(72);
 			pin_ptr<Byte> signatureptr = &signature[0];
 			int signaturelen = signature->Length;
+			pin_ptr<int> siglenptr = &signaturelen;
 			for (int x = 0; x < NonceTries; ++x)
 			{
 				Randoms->Value->GetBytes(nonce);
-				int result = secp256k1_ecdsa_sign(messageptr, message->Length, signatureptr, &signaturelen, keyptr, nonceptr);
+				int result = secp256k1_ecdsa_sign(messageptr, message->Length, signatureptr, siglenptr, keyptr, nonceptr);
 				if (result == 1)
 				{
 					if (signaturelen == signature->Length)
@@ -111,10 +112,11 @@ namespace Secp256k1
 			array<Byte> ^signature = gcnew array<Byte>(64);
 			pin_ptr<Byte> signatureptr = &signature[0];
 			int recid;
+			pin_ptr<int> recidptr = &recid;
 			for (int x = 0; x < NonceTries; ++x)
 			{
 				Randoms->Value->GetBytes(nonce);
-				int result = secp256k1_ecdsa_sign_compact(messageptr, message->Length, signatureptr, keyptr, nonceptr, &recid);
+				int result = secp256k1_ecdsa_sign_compact(messageptr, message->Length, signatureptr, keyptr, nonceptr, recidptr);
 				if (result == 1)
 				{
 					recoveryId = recid;
@@ -139,7 +141,8 @@ namespace Secp256k1
 			array<Byte> ^key = gcnew array<Byte>(65);
 			pin_ptr<Byte> keyptr = &key[0];
 			int keylen = key->Length;
-			int result = secp256k1_ecdsa_recover_compact(messageptr, message->Length, signatureptr, keyptr, &keylen, compressed ? 1 : 0, recoveryId);
+			pin_ptr<int> keylenptr = &keylen;
+			int result = secp256k1_ecdsa_recover_compact(messageptr, message->Length, signatureptr, keyptr, keylenptr, compressed ? 1 : 0, recoveryId);
 			if (result == 1)
 			{
 				if (keylen == key->Length)
@@ -181,7 +184,8 @@ namespace Secp256k1
 			array<Byte> ^publicKey = gcnew array<Byte>(compressed ? 33 : 65);
 			pin_ptr<Byte> publicKeyptr = &publicKey[0];
 			int publicKeylen = publicKey->Length;
-			int result = secp256k1_ecdsa_pubkey_create(publicKeyptr, &publicKeylen, privateKeyptr, compressed ? 1 : 0);
+			pin_ptr<int> publickeylenptr = &publicKeylen;
+			int result = secp256k1_ecdsa_pubkey_create(publicKeyptr, publickeylenptr, privateKeyptr, compressed ? 1 : 0);
 			if (result == 1)
 			{
 				if (publicKeylen == publicKey->Length)
