@@ -10,11 +10,11 @@ using namespace System::Security::Permissions;
 // associated with an assembly.
 //
 [assembly:AssemblyTitleAttribute(L"Secp256k1 .NET")];
-[assembly:AssemblyDescriptionAttribute(L"A managed .NET wrapper for Sipa's secp256k1 (x64).")];
+[assembly:AssemblyDescriptionAttribute(L"A managed .NET wrapper for Sipa's secp256k1.")];
 [assembly:AssemblyConfigurationAttribute(L"")];
 [assembly:AssemblyCompanyAttribute(L"")];
 [assembly:AssemblyProductAttribute(L"Secp256k1 .NET")];
-[assembly:AssemblyCopyrightAttribute(L"Copyright (c) Josh Lang 2013")];
+[assembly:AssemblyCopyrightAttribute(L"Copyright (c) Josh Lang 2015")];
 [assembly:AssemblyTrademarkAttribute(L"")];
 [assembly:AssemblyCultureAttribute(L"")];
 
