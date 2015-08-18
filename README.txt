@@ -15,6 +15,14 @@ Sipa's work can be found here
 [WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING]
 [WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING]
 
+[EXCITEMENT EXCITEMENT EXCITEMENT EXCITEMENT EXCITEMENT EXCITEMENT]
+
+Windows "Universal Apps" seem to support the Secp256k1 curve!!!!!!
+Someone should look into this!  (Google: "EccCurveNames.SecP256k1")
+(okay, done my sidenote rambling)
+
+[EXCITEMENT EXCITEMENT EXCITEMENT EXCITEMENT EXCITEMENT EXCITEMENT]
+
 ---------------------------------------------------------------------
 
 The secp256k1 implementation by Sipa was created for use primarily for bitcoin
@@ -32,3 +40,5 @@ Sipa's secp256k1 is 100-1000x faster.
 
 The settings for the project are by default "MachineX86 (/MACHINE:X86)". For
 64 bit projects, switch it in the project properties.
+
+---------------------------------------------------------------------
