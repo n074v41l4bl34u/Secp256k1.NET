@@ -98,6 +98,8 @@ namespace Secp256k1
 						if (!secp256k1_ecdsa_signature_serialize_der(Context, sigptr, &sigptrlen, &sig))
 							return nullptr;
 					}
+					else
+						return nullptr;
 			}
 			if (sigptrlen == sigbytes->Length)
 				return sigbytes;
