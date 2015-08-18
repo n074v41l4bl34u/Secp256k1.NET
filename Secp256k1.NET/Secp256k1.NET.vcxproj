@@ -55,6 +55,9 @@
   <ItemGroup>
     <Text Include="README.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="COPYING" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0E3071CF-137F-4414-A58E-20F230548254}</ProjectGuid>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
