@@ -5,22 +5,23 @@ This is a managed (.NET) wrapper for Sipa's secp256k1 ultra-fast implementation.
 Sipa's work can be found here
 	https://github.com/bitcoin/secp256k1
 
+---------------------------------------------------------------------
+
+This can now be used in AnyCPU mode.  Include "Secp256k1.Proxy" as your
+project's reference.  It will include both a .x86 and .x64 build, and
+load whichever is required.
+
+---------------------------------------------------------------------
 
 [WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING]
-[WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING]
-
 --> This version is almost entirely untested
 --> It was slapped together and posted in response to a request
-
-[WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING]
 [WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING]
 
 [EXCITEMENT EXCITEMENT EXCITEMENT EXCITEMENT EXCITEMENT EXCITEMENT]
-
 Windows "Universal Apps" seem to support the Secp256k1 curve!!!!!!
 Someone should look into this!  (Google: "EccCurveNames.SecP256k1")
 (okay, done my sidenote rambling)
-
 [EXCITEMENT EXCITEMENT EXCITEMENT EXCITEMENT EXCITEMENT EXCITEMENT]
 
 ---------------------------------------------------------------------

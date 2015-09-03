@@ -5,6 +5,11 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Secp256k1.NET", "Secp256k1.NET\Secp256k1.NET.vcxproj", "{0E3071CF-137F-4414-A58E-20F230548254}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Secp256k1.Proxy", "Secp256k1.Proxy\Secp256k1.Proxy.csproj", "{2B187A68-CA55-4F29-AE07-61464B86EBDA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0E3071CF-137F-4414-A58E-20F230548254} = {0E3071CF-137F-4414-A58E-20F230548254}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +30,18 @@ Global
 		{0E3071CF-137F-4414-A58E-20F230548254}.Release|x64.Build.0 = Release|x64
 		{0E3071CF-137F-4414-A58E-20F230548254}.Release|x86.ActiveCfg = Release|Win32
 		{0E3071CF-137F-4414-A58E-20F230548254}.Release|x86.Build.0 = Release|Win32
+		{2B187A68-CA55-4F29-AE07-61464B86EBDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B187A68-CA55-4F29-AE07-61464B86EBDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B187A68-CA55-4F29-AE07-61464B86EBDA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2B187A68-CA55-4F29-AE07-61464B86EBDA}.Debug|x64.Build.0 = Debug|Any CPU
+		{2B187A68-CA55-4F29-AE07-61464B86EBDA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2B187A68-CA55-4F29-AE07-61464B86EBDA}.Debug|x86.Build.0 = Debug|Any CPU
+		{2B187A68-CA55-4F29-AE07-61464B86EBDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B187A68-CA55-4F29-AE07-61464B86EBDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B187A68-CA55-4F29-AE07-61464B86EBDA}.Release|x64.ActiveCfg = Release|Any CPU
+		{2B187A68-CA55-4F29-AE07-61464B86EBDA}.Release|x64.Build.0 = Release|Any CPU
+		{2B187A68-CA55-4F29-AE07-61464B86EBDA}.Release|x86.ActiveCfg = Release|Any CPU
+		{2B187A68-CA55-4F29-AE07-61464B86EBDA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

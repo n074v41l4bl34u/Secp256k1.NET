@@ -7,3 +7,5 @@
 #define USE_SCALAR_INV_BUILTIN (1)
 
 #pragma warning (disable: 4244)
+#pragma warning (disable: 4267)
+#pragma warning (disable: 4319)
