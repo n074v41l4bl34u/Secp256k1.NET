@@ -1,5 +1,3 @@
-BEHOLD!
-
 This is a managed (.NET) wrapper for Sipa's secp256k1 ultra-fast implementation.
 
 Sipa's work can be found here
@@ -7,22 +5,17 @@ Sipa's work can be found here
 
 ---------------------------------------------------------------------
 
-This can now be used in AnyCPU mode.  Include "Secp256k1.Proxy" as your
-project's reference.  It will include both a .x86 and .x64 build, and
-load whichever is required.
+BREAKING CHANGE to "Verify" method (added normalizeSignatureOnFailure param)
+Generally, these are your use cases:
+- Verifying old transactions in the blockchain?  Use "True" or NormalizeSignature
+- Verifying new transactions?  Use "False"
+(Google "BIP 0062")
 
 ---------------------------------------------------------------------
 
-[WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING]
---> This version is almost entirely untested
---> It was slapped together and posted in response to a request
-[WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING]
-
-[EXCITEMENT EXCITEMENT EXCITEMENT EXCITEMENT EXCITEMENT EXCITEMENT]
-Windows "Universal Apps" seem to support the Secp256k1 curve!!!!!!
-Someone should look into this!  (Google: "EccCurveNames.SecP256k1")
-(okay, done my sidenote rambling)
-[EXCITEMENT EXCITEMENT EXCITEMENT EXCITEMENT EXCITEMENT EXCITEMENT]
+This can now be used in AnyCPU mode.  Include "Secp256k1.Proxy" as your
+project's reference.  It will include both a .x86 and .x64 build, and
+load whichever is required.
 
 ---------------------------------------------------------------------
 
@@ -39,7 +32,8 @@ Sipa's secp256k1 is 100-1000x faster.
 
 ---------------------------------------------------------------------
 
-The settings for the project are by default "MachineX86 (/MACHINE:X86)". For
-64 bit projects, switch it in the project properties.
+The settings for Secp256k1.NET are by default "MachineX86 (/MACHINE:X86)". For
+64 bit projects, switch it in the project properties. For AnyCPU projects,
+use the Proxy project.
 
 ---------------------------------------------------------------------

@@ -9,3 +9,5 @@
 #pragma warning (disable: 4244)
 #pragma warning (disable: 4267)
 #pragma warning (disable: 4319)
+
+#define ENABLE_MODULE_RECOVERY (1)

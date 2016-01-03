@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Secp256k1.Proxy")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Secp256k1 .NET Proxy")]
+[assembly: AssemblyDescription("Secp256k1 Proxy for AnyCPU")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Secp256k1.Proxy")]
-[assembly: AssemblyCopyright("Copyright © Josh Lang 2015")]
+[assembly: AssemblyProduct("Secp256k1 .NET Proxy")]
+[assembly: AssemblyCopyright("Copyright © Josh Lang 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

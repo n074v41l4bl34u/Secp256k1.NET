@@ -39,6 +39,7 @@
     <ClInclude Include="hash_impl.h" />
     <ClInclude Include="include\secp256k1.h" />
     <ClInclude Include="libsecp256k1-config.h" />
+    <ClInclude Include="modules\recovery\main_impl.h" />
     <ClInclude Include="num.h" />
     <ClInclude Include="num_impl.h" />
     <ClInclude Include="scalar.h" />

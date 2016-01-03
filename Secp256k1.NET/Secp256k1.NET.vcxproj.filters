@@ -96,6 +96,9 @@
     <ClInclude Include="ecmult_const.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="modules\recovery\main_impl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="secp256k1.c">
