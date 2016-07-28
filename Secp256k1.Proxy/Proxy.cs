@@ -12,7 +12,7 @@ namespace Secp256k1
             {
                 if (signaturesType == null)
                 {
-                    Assembly a = Assembly.LoadFrom("Secp256k1." + (IntPtr.Size == 4 ? "x86" : "x64") + ".dll");
+                    var a = Assembly.LoadFrom("Secp256k1." + (IntPtr.Size == 4 ? "x86" : "x64") + ".dll");
                     var ver = a.GetName().Version;
                     if (ver.Major < 1)
                         return null;

@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="C:\Users\josh\Desktop\ProvenFair\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props" Condition="Exists('C:\Users\josh\Desktop\ProvenFair\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props')" />
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -55,26 +53,27 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>if $(ConfigurationName) == Debug copy $(ProjectDir)\..\Debug\Secp256k1.NET.DLL $(ProjectDir)\Secp256k1.x86.dll /y
-if $(ConfigurationName) == Debug copy $(ProjectDir)\..\x64\Debug\Secp256k1.NET.DLL $(ProjectDir)\Secp256k1.x64.dll /y
-if $(ConfigurationName) == Release copy $(ProjectDir)\..\Release\Secp256k1.NET.DLL $(ProjectDir)\Secp256k1.x86.dll /y
-if $(ConfigurationName) == Release copy $(ProjectDir)\..\x64\Release\Secp256k1.NET.DLL $(ProjectDir)\Secp256k1.x64.dll /y</PreBuildEvent>
+    <PreBuildEvent>ECHO To build this project you need to have both 32-bit and 64-bit versions of Secp256k1.NET library
+IF NOT EXIST "$(ProjectDir)Secp256k1.x86.dll" (
+  ECHO warning: 32-bit DLL not found. Trying to use $(SolutionDir)$(ConfigurationName)\Secp256k1.NET.DLL...
+  IF EXIST "$(SolutionDir)$(ConfigurationName)\Secp256k1.NET.DLL" (
+    copy "$(SolutionDir)$(ConfigurationName)\Secp256k1.NET.DLL" "$(ProjectDir)Secp256k1.x86.dll" /y
+  ) ELSE ECHO error: no 32-bit DLL found.
+)
+
+IF NOT EXIST "$(ProjectDir)Secp256k1.x64.dll" (
+  ECHO warning: 64-bit DLL not found. Trying to use $(SolutionDir)x64\$(ConfigurationName)\Secp256k1.NET.DLL...
+  IF EXIST "$(SolutionDir)x64\$(ConfigurationName)\Secp256k1.NET.DLL" (
+    copy "$(SolutionDir)x64\$(ConfigurationName)\Secp256k1.NET.DLL" "$(ProjectDir)Secp256k1.x64.dll" /y
+  ) ELSE ECHO error: no 64-bit DLL found.
+)</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('C:\Users\josh\Desktop\ProvenFair\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', 'C:\Users\josh\Desktop\ProvenFair\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
